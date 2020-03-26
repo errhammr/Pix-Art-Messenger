@@ -22,10 +22,28 @@ import de.pixart.messenger.ui.util.IntroHelper;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
+/**
+ * This class is the entry point on startup. It checks whether or not the
+ * required permissions have been granted. The user will be asked to grant
+ * missing permissions.
+ */
 public class StartUI extends AppCompatActivity
         implements EasyPermissions.PermissionCallbacks {
 
+    /**
+     * Parameter {@code requestCode} for method
+     * {@code EasyPermissions#requestPermissions()}.
+     * @see pub.devrel.easypermissions.EasyPermissions#requestPermissions(Activity, String, int, String...) EasyPermissions#requestPermissions()
+     */
     private static final int NeededPermissions = 1000;
+
+    /**
+     * This array contains the essential permissions without which the app
+     * cannot operate.
+     * Parameter {@code perms} for method
+     * {@code EasyPermissions#requestPermissions()}.
+     * @see pub.devrel.easypermissions.EasyPermissions#requestPermissions(Activity, String, int, String...) EasyPermissions#requestPermissions()
+     */
     String[] perms = {Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
     };
